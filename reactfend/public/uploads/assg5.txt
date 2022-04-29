@@ -1,0 +1,71 @@
+create table employee 
+(  emp_no  varchar2(10)  constraint eno check(emp_no like 'E%') not null primary key,
+  name  varchar2(20),
+  address  varchar2(20),
+  qualification  varchar2(20),
+  course_id  varchar2(20),
+  department  varchar2(10)  constraint dept check(department in ('Physics','Chemistry')),
+  designation  varchar2(20),
+  dob  date,
+  doj  date,
+  constraint dt check(doj>dob)
+);
+
+create table accounts
+(
+  emp_no  varchar2(10)  references employee(emp_no),
+  basic_salary  number(10,2),
+  da varchar2(20),
+  hra  varchar2(20),
+  pf  varchar2(20),
+  gross_salary  number(10,2)
+);
+
+create table training
+( course_id  varchar2(20)  primary key,
+  course_name  varchar2(20)
+  );
+
+insert into employee values('E1001','a','fdkgjdkf','MA','1001','Physics','Assistant Professor','19-feb-1968','19-feb-1998');
+insert into employee values('E1002','be','fdkgjdkf','MA','2020','Physics','Assistant Professor','19-feb-1968','19-feb-1998');
+insert into employee values('E1003','amish','fdkgjdkf','MA','2093','Chemistry',' Professor','19-feb-1968','19-feb-1998');
+insert into employee values('E1004','varun','fdkgjdkf','MA','9035','Physics','Lb Tecnician','19-feb-1968','19-feb-1998');
+insert into employee values('E1005','kajal','fdkgjdkf','MA','9312','Chemistry','Professor','19-feb-1968','19-feb-1998');
+insert into employee values('E1006','pankaj','fdkgjdkf','MA','0000','Physics','Professor','19-feb-1968','19-feb-1998');
+insert into employee values('E1007','pankaj','fdkgjdkf','MA','1111','Physics',' Professor','19-feb-1968','19-feb-1998');
+insert into employee values('E1008','pankaj','fdkgjdkf','MA','2222','Physics','HOD','15-mar-1878','02-july-1918');
+insert into employee values('E1009','pankaj','fdkgjdkf','MA','3333','Physics','Professor','19-feb-1930','19-feb-1980');
+insert into employee values('E1010','kriti','fdkgjdkf','MA','4444','Physics',' Professor','19-feb-1955','19-feb-1998');
+insert into employee values('E1011','pankaj','fdkgjdkf','MA','5555','Physics','t Lab assistant','19-feb-1968','19-feb-1989');
+insert into employee values('E1012','ahem','fdkgjdkf','MA','6666','Physics','vice Professor','19-feb-1968','19-feb-2000');
+
+insert into accounts values('E1001',45600,3853,7089,8932,70040);
+insert into accounts values('E1002',450200,6532,7668,1565,80000);
+insert into accounts values('E1003',85000,6245,7742,1578,706370);
+insert into accounts values('E1004',4500,25347,56646,2427,78600);
+insert into accounts values('E1005',24554,2646,25278,4253,62000);
+insert into accounts values('E1006',25000,2676,1478,2667,70050);
+insert into accounts values('E1007',56800,1654,2678,24672,70000);
+insert into accounts values('E1008',45000,16573,2763,8798,70204);
+insert into accounts values('E1009',46900,4765,1556,8678,70000);
+insert into accounts values('E1010',46500,6675,88426,4767,72000);
+insert into accounts values('E1011',37800,6458,6788,4637,84000);
+insert into accounts values('E1012',46700,45356,7784,65467,72000);
+
+insert into training values('1001','kgjsd;g');
+insert into training values('2020','glkdfn');
+insert into training values('2093','iejgnk');
+insert into training values('9035','fnjnnfv');
+insert into training values('9312','bvdfbvk');
+insert into training values('0000','reihevn');
+insert into training values('1111','ueriug');
+insert into training values('2222','rijgfdml');
+insert into training values('3333','rjgjdfs');
+insert into training values('4444','vndoffl');
+insert into training values('5555','urhigjvj');
+insert into training values('6666','frhufv');
+
+
+
+
+
